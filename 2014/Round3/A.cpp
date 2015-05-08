@@ -42,7 +42,6 @@ int main()
         int rightBound = 0;
 
         for(int i = 0; i < N; ++i) {
-
             while( rightBound < N) {
                 ans = max(ans, ArnarGet(i, rightBound));
                 ++rightBound;
@@ -52,6 +51,7 @@ int main()
                     break;
                 }
             }
+            if(sum[i] > halfSum) break;
         }
 
         printf("Case #%d: %.12f\n", tc, (double)ans/(double)sum[N]);
