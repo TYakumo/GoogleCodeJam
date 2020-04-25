@@ -76,7 +76,7 @@ int main()
             long long C;
             long long J;
             cin >> C >> J;
-            mole[i] = {0, i, C, J};
+            mole[i] = {C, J};
         }
 
         const long long INF = 1000000010;
@@ -88,13 +88,13 @@ int main()
 
         for (int i = 0; i < N; ++i) {
             for (int j = 0; j < N; ++j) {
-                if ((mole[j][2] > mole[i][2] || mole[j][3] > mole[i][3])
-                && (mole[j][2] < mole[i][2] || mole[j][3] < mole[i][3])) {
-                    if (mole[j][2] > mole[i][2]) { // J < C
-                        long long diff[2] = {mole[j][2]-mole[i][2], mole[i][3]-mole[j][3]};
+                if ((mole[j][0] > mole[i][0] || mole[j][1] > mole[i][1])
+                && (mole[j][0] < mole[i][0] || mole[j][1] < mole[i][1])) {
+                    if (mole[j][0] > mole[i][0]) { // J < C
+                        long long diff[2] = {mole[j][0]-mole[i][0], mole[i][1]-mole[j][1]};
                         low.emplace_back(Num(diff[0], diff[1]));
                     } else { // C < J
-                        long long diff[2] = {mole[j][3]-mole[i][3], mole[i][2]-mole[j][2]};
+                        long long diff[2] = {mole[j][1]-mole[i][1], mole[i][0]-mole[j][0]};
                         up.emplace_back(Num(diff[1], diff[0]));
                     }
                 }
